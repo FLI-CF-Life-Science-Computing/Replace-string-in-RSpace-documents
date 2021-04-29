@@ -1,7 +1,7 @@
 # coding=utf-8
 """
 Searches all documents of an RSpace ELN account for a character string in order to replace it and upload the edited document as a new version.
-Your have to check the API limits (https://researchspace.helpdocs.io/article/oz02ygufnj-api-configuration-and-setup) because the script can create many api requests
+Your have to check the API limits (https://researchspace.helpdocs.io/article/oz02ygufnj-api-configuration-and-setup) because the script can create many api requests.
 """
 
 # @status:  production
