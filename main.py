@@ -36,15 +36,15 @@ try:
     #print_document_names(response)
     for document in response['documents']:
         try:
+            time.sleep(2) # Wait two second because of the standard minimum interval of 25ms between requests
             single_doc = client.get_document(document['id'])
             document_id = single_doc['id'] 
             logging.info('Found document {}'.format(document_id))
             dict_fields = single_doc['fields'][0]
             original_content = dict_fields["content"]
-            if (original_content.find(ORIGINALTEXT)):   
+            if (original_content.find(ORIGINALTEXT)!=-1):   
                 new_content = original_content.replace(ORIGINALTEXT,NEWTEXT)
                 upload_data = [{'content': new_content}]
-                time.sleep(1) # Wait one second because of the standard minimum interval of 25ms between requests
                 response = client.update_document(document_id,None,None,None,upload_data)
                 logging.info('Document {} updated'.format(document_id))
             else:
